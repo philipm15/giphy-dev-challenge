@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <div class="columns">
-  <div class="column is-fullheight content">
-    <router-outlet></router-outlet>
+  <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" class="column is-fullheight content">
+    <router-outlet #o="outlet"></router-outlet>
   </div>
 </div>
 

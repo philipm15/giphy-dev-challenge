@@ -23,8 +23,13 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  getGifs(){
-    this.gifs.length = 0;
+  getGifs(action : string){
+    if(action === "new"){
+      this.gifs.length = 0;
+      this.offset = 0;
+    } else if(action === "load"){
+      this.offset += 25;
+    }
     this.giphyService.getGifs(this.searchTerm, this.offset).subscribe(
       (res: GiphyResponse) => {
         if(res.data.length > 0){
@@ -32,22 +37,6 @@ export class SearchComponent implements OnInit {
             let string = "https://i.giphy.com/media/" + (res.data[i] as Gif).id + "/200.gif";
             this.gifs.push(string);
           }
-          console.log(this.gifs);
-        }
-      }
-    )
-  }
-
-  loadMore(){
-    this.offset += 25;
-    this.giphyService.getGifs(this.searchTerm, this.offset).subscribe(
-      (res: GiphyResponse) => {
-        if(res.data.length > 0){
-          for(let i=0; i < res.data.length; i++){
-            let string = "https://i.giphy.com/media/" + (res.data[i] as Gif).id + "/200.gif";
-            this.gifs.push(string);
-          }
-          console.log(this.gifs);
         }
       }
     )

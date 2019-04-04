@@ -5,3 +5,8 @@
 .navbar-item img {
   max-height: 100%;
 }
+
+.active {
+  border-left: limegreen 2px solid;
+  border-right: limegreen 2px solid;
+}
