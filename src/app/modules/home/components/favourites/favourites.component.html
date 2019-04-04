@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container">
+    <div *ngFor="let url of gifs; let i = index">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="{{url}}">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <a class="button is-danger" (click)="deleteGif(i)">
+              <span class=""icon is-small>
+                <i class="fas fa-minus-circle"></i>
+              </span>
+              <span>
+                Delete from favourites
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

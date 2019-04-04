@@ -1,0 +1,44 @@
+<div class="columns is-centered">
+  <div class="column has-text-centered is-3">
+    <form (ngSubmit)="getGifs()">
+      <div class="form-group">
+        <input type="text" class="input is-success" placeholder="Search..." [(ngModel)]="searchTerm" name="searchTerm">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div *ngFor="let url of gifs">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="{{url}}">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <a class="button is-success" (click)="saveGif(url)">
+              <span class="icon is-small">
+                <i class="far fa-star"></i>
+              </span>
+              <span>
+                Add to favourites
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card load-more" *ngIf="gifs.length > 0">
+      <a class="button is-success" (click)="loadMore()">
+        <span class="icon is-small">
+        <i class="fas fa-arrow-circle-down"></i>
+        Load More
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+

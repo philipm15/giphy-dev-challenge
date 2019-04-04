@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-flow: wrap;
+}
+
+img {
+  max-width:250px;
+  max-height:250px;
+}
+
+.card {
+  margin: 5px;
+  height: 320px;
+  width: 320px;
+}
+
+.card-image {
+  height: 255px;
+}
+
+figure > img {
+  padding-top: 2em;
+}
+
+.content {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+}
+
+.load-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.load-more > a {
+  min-width: 100px;
+}

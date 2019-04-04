@@ -1,0 +1,7 @@
+.navbar {
+  border-bottom: limegreen 2px solid;
+}
+
+.navbar-item img {
+  max-height: 100%;
+}
