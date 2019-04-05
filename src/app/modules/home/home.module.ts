@@ -11,6 +11,8 @@ import { NavComponent } from './components/nav/nav.component';
 import {GiphyService} from "./services/giphy.service";
 import {StorageService} from "./services/storage.service";
 import {FormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HttpErrorInterceptor} from "../../Interceptors/http-error.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import {FormsModule} from "@angular/forms";
   ],
   providers: [
     GiphyService,
-    StorageService
+    StorageService/*,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }*/
   ]
 })
 export class HomeModule { }

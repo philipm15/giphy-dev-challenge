@@ -46,4 +46,8 @@ export class SearchComponent implements OnInit {
     this.storageService.saveGif(url);
   }
 
+  imgLoaded(){
+    //console.log("image loaded");
+  }
+
 }

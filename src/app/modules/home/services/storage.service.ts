@@ -16,7 +16,10 @@ export class StorageService {
   }
 
   getGifs(){
-    return this.gifStorage = JSON.parse(localStorage.getItem("favourites"));
+    if(localStorage.getItem("favourites")){
+      return this.gifStorage = JSON.parse(localStorage.getItem("favourites"));
+    }
+
   }
 
   deleteGif(index: number){

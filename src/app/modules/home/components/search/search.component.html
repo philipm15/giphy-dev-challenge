@@ -3,7 +3,7 @@
     <form (ngSubmit)="getGifs('new')">
       <div class="form-group">
         <input type="text" class="input is-success" placeholder="Search..." [(ngModel)]="searchTerm" name="searchTerm">
-        <button type="submit"><i class="fas fa-search"></i></button>
+        <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
       </div>
     </form>
   </div>
@@ -14,7 +14,7 @@
       <div class="card">
         <div class="card-image">
           <figure class="image">
-            <img src="{{url}}" alt="400 lol">
+            <img src="{{url}}" alt="404 lol" (load)="imgLoaded()">
           </figure>
         </div>
         <div class="card-content">
