@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {GiphyService} from "../../services/giphy.service";
 import {Gif} from "../../models/gif";
 import {GiphyResponse} from "../../models/response";
@@ -11,6 +11,8 @@ import {StorageService} from "../../services/storage.service";
 })
 export class SearchComponent implements OnInit {
 
+
+  isFixed : boolean = false;
   searchTerm : string;
   offset: number = 0;
   gifs: String[] = [];
@@ -21,6 +23,15 @@ export class SearchComponent implements OnInit {
   ){ }
 
   ngOnInit() {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  trackScroll(event){
+    if(window.pageYOffset > 60){
+      this.isFixed = true;
+    } else {
+      this.isFixed = false;
+    }
   }
 
   getGifs(action : string){
