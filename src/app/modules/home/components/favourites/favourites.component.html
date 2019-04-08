@@ -1,4 +1,9 @@
 <section class="section">
+  <div *ngIf="!gifs.length > 0" class="notification-wrapper">
+    <div class="notification is-success">
+      You didn't add any gifs to your favourites yet.
+    </div>
+  </div>
   <div class="container">
     <div *ngFor="let url of gifs; let i = index">
       <div class="card">

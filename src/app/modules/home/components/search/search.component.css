@@ -53,3 +53,24 @@ figure > img {
   cursor: pointer;
   outline: inherit;
 }
+
+.isFixed {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+}
+
+@media screen and (max-width: 992px) {
+  .isFixed {
+    position: fixed;
+    z-index: 1000;
+    top: 12px;
+    right: 10px;
+  }
+}
+
+img.loading {
+  background: transparent url("../../../../assets/spinner.gif") no-repeat scroll center center;
+  max-width:250px;
+  max-height:250px;
+}

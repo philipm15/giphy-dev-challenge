@@ -1,25 +1,26 @@
 <div class="columns is-centered">
-  <div class="column has-text-centered is-3">
-    <form (ngSubmit)="getGifs('new')">
+  <div class="column has-text-centered is-3" [ngClass]="{'isFixed':isFixed, '':!isFixed}">
+    <form (ngSubmit)="getGifs('new', $event)">
       <div class="form-group">
-        <input type="text" class="input is-success" placeholder="Search..." [(ngModel)]="searchTerm" name="searchTerm">
+        <input type="text" class="input is-success" placeholder="Search..." value="{{searchTerm}}" name="searchTerm">
         <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
       </div>
     </form>
   </div>
+  <div class="column has-text-centered is-3" style="height: 52px;" *ngIf="isFixed"></div>
 </div>
 <section class="section">
   <div class="container">
-    <div *ngFor="let url of gifs">
+    <div *ngFor="let gif of gifs">
       <div class="card">
-        <div class="card-image">
+        <div (click)="detail(gif)" class="card-image">
           <figure class="image">
-            <img src="{{url}}" alt="404 lol" (load)="imgLoaded()">
+            <img src="{{gif.directUrl}}" alt="404 lol" (load)="imgLoaded()">
           </figure>
         </div>
         <div class="card-content">
           <div class="content">
-            <a class="button is-success" (click)="saveGif(url)">
+            <a class="button is-success" (click)="saveGif(gif.directUrl)">
               <span class="icon is-small">
                 <i class="far fa-star"></i>
               </span>

@@ -1,1 +1,7 @@
 @import url("../search/search.component.css");
+
+.notification-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

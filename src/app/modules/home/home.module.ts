@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
-import { RouterModule } from '@angular/router';
+import {RouteReuseStrategy, RouterModule} from '@angular/router';
 
 
 import { HomeComponent } from './home.component';
@@ -13,13 +13,15 @@ import {StorageService} from "./services/storage.service";
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpErrorInterceptor} from "../../Interceptors/http-error.interceptor";
+import { DetailpageComponent } from './components/detailpage/detailpage.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SearchComponent,
     FavouritesComponent,
-    NavComponent
+    NavComponent,
+    DetailpageComponent
   ],
   imports: [
     CommonModule,
@@ -30,12 +32,12 @@ import {HttpErrorInterceptor} from "../../Interceptors/http-error.interceptor";
   ],
   providers: [
     GiphyService,
-    StorageService/*,
+    StorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-    }*/
+    }
   ]
 })
 export class HomeModule { }
